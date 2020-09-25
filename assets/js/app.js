@@ -1,6 +1,4 @@
 const grid = document.getElementById("grid");
-const addEle = document.getElementById("add");
-let i = 0;
 
 let imgArr = [
   "assets/images/pic1.jpg",
@@ -12,27 +10,36 @@ let imgArr = [
   "assets/images/pic7.jpg",
   "assets/images/pic1.jpg",
   "assets/images/pic4.jpg",
+  "assets/images/pic5.jpg",
+  "assets/images/pic6.jpg",
+  "assets/images/pic7.jpg",
+  "assets/images/pic1.jpg",
+  "assets/images/pic4.jpg",
+  "assets/images/pic5.jpg",
+  "assets/images/pic6.jpg",
+  "assets/images/pic7.jpg",
+  "assets/images/pic1.jpg",
+  "assets/images/pic4.jpg",
 ];
 
-function addCard() {
+imgArr.forEach((ele, idx) => {
   let card = document.createElement("article");
   card.className = "flip-card";
-  card.id = "card-" + i;
-  let index = Math.floor(Math.random() * (imgArr.length - 1 - 0 + 1)) + 0;
+  card.id = "card-" + idx;
   let innerCard = `<div class="flip-card-inner">
   <div class="flip-card-front">
-    <img src=${imgArr[index]} />
+    <img src=${ele} onerror="this.onerror=null; this.src='assets/images/placeholder.png'"/>
   </div>
   <div class="flip-card-back">
     <h1>Dummy Text</h1>
-    <span class="material-icons del-icon" onclick="delCard(${i++})">
+    <span class="material-icons del-icon" onclick="delCard(${idx})">
       delete
     </span>
   </div>
 </div>`;
   card.innerHTML = innerCard;
-  grid.insertBefore(card, addEle);
-}
+  grid.appendChild(card);
+});
 
 function delCard(idx) {
   document.getElementById("card-" + idx).remove();
@@ -40,7 +47,6 @@ function delCard(idx) {
 
 function shuffle() {
   var cards = document.querySelectorAll(".flip-card");
-  console.log(cards);
   cards.forEach((card, idx) => {
     setTimeout(() => {
       card.classList.add("shuffle-class");
@@ -55,7 +61,6 @@ function shuffleBack() {
     gridList.appendChild(gridList.children[(Math.random() * i) | 0]);
   }
   var cards = document.querySelectorAll(".flip-card");
-  console.log(cards);
   cards.forEach((card, idx) => {
     setTimeout(() => {
       card.classList.remove("shuffle-class");

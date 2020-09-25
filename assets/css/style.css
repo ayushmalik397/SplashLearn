@@ -27,7 +27,7 @@ body {
   padding: 2rem;
   flex-wrap: wrap;
   position: relative;
-  flex-basis: 50%;
+  justify-content: center;
 }
 
 .flip-front {
@@ -57,15 +57,10 @@ img {
 
 .flip-card,
 .card {
-  margin: 10px;
+  margin: 5px;
   height: 200px;
   width: 200px;
   width: 200px;
-  padding: 1rem;
-  border-radius: 16px;
-  background: #373638;
-  box-shadow: -1rem 0 3rem #000;
-  transition: all 2s;
 }
 
 .shuffle-class {
